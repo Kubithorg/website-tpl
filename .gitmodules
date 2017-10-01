@@ -1,0 +1,6 @@
+[submodule "sass/bulma"]
+	path = sass/bulma
+	url = https://github.com/jgthms/bulma.git
+[submodule "sass/bulma-divider"]
+	path = sass/bulma-divider
+	url = https://github.com/Wikiki/bulma-divider.git
