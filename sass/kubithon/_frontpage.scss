@@ -9,20 +9,52 @@
 
 	vertical-align: middle;
 
-	& .donation-amount span {
+	.donation-amount span {
 		font-size: 1.4em;
 		display: block;
 		margin-bottom: .5em;
 	}
 
-	& button.button {
+	button.button {
 		font-size: 2rem;
+		margin-top: 1.4em;
+	}
+
+	.achievement {
+		p {
+			font-size: .65em;
+			position: relative;
+			top: -.3em;
+		}
+	}
+}
+
+.hero-head {
+	background-color: lighten($primary, 5%);
+
+	header {
+		.navbar-brand {
+			font-size: 2.5em;
+
+			img.navbar-brand-logo {
+				height: 1.6em;
+				max-height: 2em; // Required because Bulma sets a max-height
+			}
+		}
+
+		.kubithon-chapo {
+			color: #111;
+			font-style: italic;
+			font-weight: bold;
+
+			text-align: right;
+		}
 	}
 }
 
 .hero-foot.kubithon-home-foot {
 	padding-top: 0;
-	margin-bottom: .4em;
+	margin-bottom: .3em;
 
 	.columns {
 		margin-top: -1rem;
@@ -30,5 +62,13 @@
 		a.column {
 			padding-top: 2.6rem;
 		}
+	}
+
+	.is-divider[data-content]::after, .is-divider-vertical[data-content]::after {
+		background-color: $primary;
+		top: 59%;
+	}
+	.is-divider-vertical::before {
+		bottom: 0;
 	}
 }
