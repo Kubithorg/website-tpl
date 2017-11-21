@@ -34,13 +34,14 @@
 	}
 
 	.goals {
+		padding-top: 2em;
 		p {
 			font-size: .65em;
 			position: relative;
 			top: -.3em;
 		}
 
-		.progress-goals {
+		ul.progress-goals {
 			margin: 0;
 			min-height: 3.5em;
 
@@ -49,18 +50,13 @@
 				text-align: left;
 				width: 20rem;
 
-				&.right-tick {
-					left: -20rem;
-					text-align: right;
-				}
-
 				&:before {
 					content: '';
 					height: .6em;
 					border-left: solid 1px #fff;
 
 					position: absolute;
-					top: -.5em;
+					top: -.4em;
 				}
 
 				&.right-tick:before {
@@ -70,21 +66,142 @@
 				&:not(:first-child) h4 span.fa {
 					display: none;
 				}
+
 				&:first-child {
-					h4 span.fa {
-						display: inline-block;
-						margin-left: .6em;
+					> span {
+						display: none;
 					}
-					p {
-						font-size: .6em;
+
+					aside {
+						display: block;
+
+						h4 span.fa {
+							display: inline-block;
+							margin-left: .6em;
+						}
+						p {
+							font-size: .6em;
+						}
 					}
 				}
 
-				h4 {
-					font-size: .8em;
+				> span {
+					display: inline-block;
+					position: absolute;
+					top: .35em;
+					left: -0.23em;
+
+					width: 8px;
+					height: 8px;
+					margin: 5px;
+
+					background-color: #fff;
+
+					cursor: pointer;
+
+					$goal-dot-trans: .12s ease-in;
+					$goal-dot-trans-out: .18s ease-in;
+
+					&:before {
+						content: '';
+						position: absolute;
+
+						left: -5px;
+						top: -5px;
+
+						width: 18px;
+						height: 18px;
+
+						border: solid white 1px;
+
+						transition:
+							border-color $goal-dot-trans-out,
+							left $goal-dot-trans-out, top $goal-dot-trans-out,
+							width $goal-dot-trans-out, height $goal-dot-trans-out,
+							transform $goal-dot-trans-out;
+					}
+
+					&:hover:before {
+						border-color: transparent;
+
+						left: -26px;
+						top: -26px;
+
+						width: 60px;
+						height: 60px;
+
+						transition:
+							border-color $goal-dot-trans,
+							left $goal-dot-trans, top $goal-dot-trans,
+							width $goal-dot-trans, height $goal-dot-trans,
+							transform $goal-dot-trans;
+					}
 				}
-				p {
-					font-size: .55em;
+
+				aside {
+					display: none;
+
+					h4 {
+						font-size: .8em;
+					}
+					p {
+						font-size: .55em;
+					}
+
+					&.is-active {
+						display: block;
+						position: absolute;
+
+						left: -.22em;
+						top: .86em;
+
+						z-index: 10000;
+
+						color: #222;
+
+						background: $primary;
+						border: solid 1px #fff;
+						padding: 5px;
+
+						div {
+							padding: .3em .6em;
+							background-color: #fff;
+						}
+					}
+				}
+
+				&:nth-child(2n) {
+					&:before {
+						top: -1.8em;
+					}
+
+					> span {
+						top: -2.58em;
+					}
+
+					aside.is-active {
+						top: -2.09em;
+						left: -.22em;
+					}
+				}
+
+				&.right-tick {
+					left: -20rem;
+					text-align: right;
+
+					> span {
+						left: unset;
+						right: -.2em;
+					}
+
+					aside.is-active {
+						left: unset;
+						right: -.21em;
+						div {
+							padding: .3em .6em;
+							background-color: #fff;
+						}
+					}
 				}
 			}
 		}
